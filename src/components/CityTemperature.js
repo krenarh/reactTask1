@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CustomButton from "./CustomButton";
+import styles from'./cityTemperature.module.css';
 
 export const CityTemperature = ({ city, initialTemperature }) => {
   const [temperature, setTemperature] = useState(initialTemperature);
@@ -25,14 +26,17 @@ export const CityTemperature = ({ city, initialTemperature }) => {
     setTemperature((prevTemperature) => prevTemperature + 1);
   };
   return (
-    <div>
+    <div className={styles.cityTemperature}>
       <p>
-        {city} -
-        <CustomButton onSelect={decreaseTemperature} title={"-"}></CustomButton>
-        {temperature} {unit}
-        <CustomButton onSelect={increaseTemperature} title={"+"}></CustomButton> 
-        <CustomButton onSelect={temperatureUnit} title={`Show in ${unit === "C" ? "Fahrenheit" : "Celsius"}`}>
-        </CustomButton>
+      <span className={styles.cityName}>{city}</span>    
+        <CustomButton onSelect={decreaseTemperature} title={"-"}/>
+        &nbsp;&nbsp; {temperature}° {unit}
+        <div className={styles.buttons}>
+        <CustomButton onSelect={increaseTemperature} title={"+"}/> 
+        <div className={styles.toggleButton}>
+        <CustomButton onSelect={temperatureUnit} title={`Show in ${unit === "C" ? "Fahrenheit" : "Celsius"}`}/>
+        </div>
+        </div>
       </p>
     </div>
   );

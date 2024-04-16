@@ -1,7 +1,10 @@
 import React from "react";
+import styles from'./cityTemperature.module.css';
+
 
 export default function CustomButton({title, onSelect}){
     return(
-    <button onClick={onSelect}>{title}</button>
+        <button className={styles.transparentButton} onClick={onSelect}>{title}</button>
         )
+        
 }

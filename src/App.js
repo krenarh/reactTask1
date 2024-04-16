@@ -2,7 +2,6 @@ import "./App.css";
 import { citiesData } from "./constants/cityTemperatures";
 import { CityTemperature } from "./components/CityTemperature";
 
-
 function App() {
   const data = citiesData;
 
